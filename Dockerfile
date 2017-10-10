@@ -1,10 +1,5 @@
 FROM ubuntu:rolling
 
-# ENV PASSWORD 123456789
-ENV POSTGRE_VERSION 10
-
-
-
 #install elasticsearch
 RUN apt-get update \ 
     && apt-get install --allow-unauthenticated -y default-jre \ 
@@ -35,7 +30,7 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main" >> /etc/
     && service postgresql start \ 
     && psql -U postgres -c "CREATE ROLE root WITH LOGIN PASSWORD '123456789' SUPERUSER;" \ 
     && service postgresql restart \ 
-    && echo "Mevistarte"
+    && echo "Up And Done"
 
 
 COPY boot.sh /usr/local/bin/
