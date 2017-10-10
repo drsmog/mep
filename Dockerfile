@@ -35,4 +35,5 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main" >> /etc/
 
 COPY boot.sh /usr/local/bin/
 RUN ln -s usr/local/bin/boot.sh / # backwards compat
+RUN chmod +x boot.sh
 ENTRYPOINT  boot.sh ; /bin/bash
