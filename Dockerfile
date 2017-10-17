@@ -33,8 +33,8 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ zesty-pgdg main" >> /etc/
     && echo "Up And Done"
 
 # install nodejs
-RUN apt-get update \ 
-    && apt-get install --allow-unauthenticated -y curl xz-utils \ 
+RUN apt-get update; exit 0 
+RUN apt-get install --allow-unauthenticated -y curl xz-utils \ 
     && curl -SLO --insecure "https://nodejs.org/dist/v8.7.0/node-v8.7.0-linux-x64.tar.xz" \ 
     && tar -xJf "/node-v8.7.0-linux-x64.tar.xz" -C /usr/local --strip-components=1 \ 
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs
